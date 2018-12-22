@@ -1,3 +1,4 @@
+require('dotenv').config({ path: `${__dirname}/.env` })
 const express = require('express')
 const morgan = require('morgan')
 const exphbs = require('express-handlebars')
