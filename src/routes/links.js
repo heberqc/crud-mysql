@@ -16,7 +16,18 @@ router.post('/add', async (req, res) => {
   } catch (error) {
     console.log('Error inserting the new link:', error)
   }
-  res.send('recibido')
+  res.redirect('/links')
+})
+
+router.get('/', async (req, res) => {
+  try {
+    const links = await pool.query('SELECT * FROM links')
+    console.log('links:', links)
+    res.render('links/list', { links })
+  } catch (error) {
+    console.log('Error on select the links:', error)
+    res.send('Error on select the links')
+  }
 })
 
 module.exports = router
