@@ -1,6 +1,6 @@
+const config = require('./config')
 const mysql = require('mysql')
 const { promisify } = require('util')
-const config = require('./config').get(process.env.NODE_ENV)
 
 const pool = mysql.createPool(config.mysql.uri)
 

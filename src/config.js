@@ -1,5 +1,10 @@
-const config = {
+const keys = {
   production: {
+    mysql : {
+      uri: process.env.JAWSDB_MARIA_URL,
+    }
+  },
+  test: {
     mysql : {
       uri: process.env.JAWSDB_MARIA_URL,
     }
@@ -8,9 +13,7 @@ const config = {
     mysql : {
       uri: process.env.JAWSDB_MARIA_URL,
     }
-  }
+  },
 }
 
-exports.get = function get(env) {
-  return config[env] || config.default;
-}
+module.exports = keys[process.env.NODE_ENV] || keys.default
